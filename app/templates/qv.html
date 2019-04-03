@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="/static/qv.css">
+        <title>QV!</title>
+    </head>
+    <body>
+        <!--Section with all the text and explanation-->
+        <div class="container">
+            <h1>Hello, world!</h1>
+            <p>Description</p>
+        </div>
+
+        <div class="container">
+            <h2>Summary</h2>
+            <p>and the submit button</p>
+            <div class='btn' id="other">Trigger the handler</div>
+        </div>
+        
+        <!--Section with all the questions-->
+        <form id='qv_form' class="container">
+            <div>
+                {% for question in q_list %}
+                    <!--if question is QV-->
+                    {% if question['type'] == 'qv' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <div label for="first_name" class="">
+                        {% for option in question['options'] %}
+                        <div>
+                            <a class="light-blue lighten-5 waves-effect waves-light plus btn">+1</a>
+                            <a class="light-blue lighten-5 waves-effect waves-light minus btn">-1</a>
+                            <p class="qv_option" style="display:inline">{{ option }}</p>
+                            <input class="qv_vote" name={{question.qid}}+{{option}} type='qv' style="display:inline" value=0 readonly>
+                            <p style="display:inline">votes, costs</p>
+                            <p class="qv_cost" style='display:inline' value=0 readonly>0</p>
+                            <p style="display:inline">voice credits</p>
+                            <br>
+                            <br>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <!--if question is text-->
+                    {% if question['type'] == 'short_question' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <div class="input-field col s12">
+                            <textarea name='result' type='text' id="textarea2" class="materialize-textarea"></textarea>
+                    </div>
+                    {% endif %}
+
+                    <!--if question is choice-->
+                    {% if question['type'] == 'choice' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <!-- <div class="input-field col s12"> -->
+                    <select name='result' type='choice'>
+                        {% for option in question['options'] %}
+                            <option value={{option}}>{{ option }}</option>                
+                        {% endfor %}
+                    </select>
+                    <!-- </div> -->
+                    {% endif %}
+
+                <br>
+                <br>
+                {% endfor %}
+            
+            </div>
+            <!-- <input type="submit" style="display: none"> -->
+            <input type="submit">
+        </form>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="static/qv.js"></script>
+    </body>
+
+</html>

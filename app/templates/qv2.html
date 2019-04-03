@@ -1,0 +1,350 @@
+<html class="gr__quadratic-voting_appspot_com"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+        <meta charset="utf-8">
+        <title>Quadratic Voting</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Angular single-page-app routing without hash. See app.js-->
+        <base href="/">
+        <script src="//www.google-analytics.com/analytics.js"></script><script
+            src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/src/quadratic-voting/quadratic-voting.js"></script>
+        <script src="/src/quadratic-voting/app/app.js"></script>
+        <link rel="stylesheet" href="/src/quadratic-voting/app/app.css">
+        <style>
+    html, body {
+    	padding: 0;
+    	margin: 0;
+    	width: 100%;
+    	height: 100%;
+    	background: #eee;
+    }
+    
+  </style>
+    </head>
+    <body ng-app="QuadraticVoting" data-gr-c-s-loaded="true" class="ng-scope
+        vsc-initialized">
+        <qv-app class="ng-isolate-scope">
+            <div class="inner">
+                <div class="instructions">
+                    <h1>What's for dinner?</h1>
+                    <p>Vote for what you'd like to eat. You have <b
+                            class="ng-binding">15</b> tokens to allocate however
+                        you like. You can vote for an item more than once, but
+                        it will cost you more tokens for each vote.</p>
+                    <ul>
+                        <!-- ngRepeat: i in [1,2,3,4] --><li ng-repeat="i in
+                            [1,2,3,4]" class="ng-binding ng-scope">1 vote : 1
+                            tokens</li><!-- end ngRepeat: i in [1,2,3,4] --><li
+                            ng-repeat="i in [1,2,3,4]" class="ng-binding
+                            ng-scope">2 vote : 2 tokens</li><!-- end ngRepeat: i in [1,2,3,4] --><li
+                            ng-repeat="i in [1,2,3,4]" class="ng-binding
+                            ng-scope">3 vote : 4 tokens</li><!-- end ngRepeat: i in [1,2,3,4] --><li
+                            ng-repeat="i in [1,2,3,4]" class="ng-binding
+                            ng-scope">4 vote : 8 tokens</li><!-- end ngRepeat: i in [1,2,3,4] -->
+                        <!--.votes-total {{votesPerPerson}} votes per person-->
+                    </ul>
+                </div>
+                <div class="votes-remaining">
+                    <div class="label ng-binding">You have 15 tokens left</div>
+                    <div style="width: 150px !important" class="vote-meter">
+                        <div style="width: 150px" class="inner"></div>
+                    </div>
+                </div>
+                <div class="ballot">
+                    <!-- ngRepeat: ballotItem in ballotItems --><div
+                        ng-repeat="ballotItem in ballotItems" class="ballot-item
+                        ng-scope">
+                        <h4 class="question ng-binding">Drinks</h4>
+                        <ul class="options">
+                            <!-- ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Water</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Milk</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Tequila</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options -->
+                        </ul>
+                    </div><!-- end ngRepeat: ballotItem in ballotItems --><div
+                        ng-repeat="ballotItem in ballotItems" class="ballot-item
+                        ng-scope">
+                        <h4 class="question ng-binding">Appetizer</h4>
+                        <ul class="options">
+                            <!-- ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Nuts</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Cheese</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Oysters</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options -->
+                        </ul>
+                    </div><!-- end ngRepeat: ballotItem in ballotItems --><div
+                        ng-repeat="ballotItem in ballotItems" class="ballot-item
+                        ng-scope">
+                        <h4 class="question ng-binding">Salad</h4>
+                        <ul class="options">
+                            <!-- ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Greens</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Potato Salad</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Egg salad</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options -->
+                        </ul>
+                    </div><!-- end ngRepeat: ballotItem in ballotItems --><div
+                        ng-repeat="ballotItem in ballotItems" class="ballot-item
+                        ng-scope">
+                        <h4 class="question ng-binding">Entree</h4>
+                        <ul class="options">
+                            <!-- ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Fish</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Pizza</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Ratatouille</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options -->
+                        </ul>
+                    </div><!-- end ngRepeat: ballotItem in ballotItems --><div
+                        ng-repeat="ballotItem in ballotItems" class="ballot-item
+                        ng-scope">
+                        <h4 class="question ng-binding">Dessert</h4>
+                        <ul class="options">
+                            <!-- ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Cake</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Ice cream</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options --><li
+                                ng-repeat="option in ballotItem.options"
+                                class="option ng-scope">
+                                <div class="buttons">
+                                    <button ng-click="addVote(option)"
+                                        ng-disabled="!doShowAddVoteButton(option)">+</button>
+                                    <button ng-click="removeVote(option)"
+                                        ng-show="doShowRemoveVoteButton(option)"
+                                        class="ng-hide">-</button>
+                                </div>
+                                <div class="label ng-binding">Tequila</div>
+                                <div class="vote-count ng-binding">0 votes</div>
+                                <div class="vote-meter">
+                                    <!-- ngRepeat: vote in getVoteCount(option, true) -->
+                                </div>
+                            </li><!-- end ngRepeat: option in ballotItem.options -->
+                        </ul>
+                    </div><!-- end ngRepeat: ballotItem in ballotItems -->
+                </div>
+                <div class="about">
+                    <h4>About</h4>
+                    <p>This is an prototype of quadratic voting, as inspired by
+                        <a
+                            href="http://www.spectator.co.uk/features/9512322/humans-are-doing-democracy-wrong-bees-are-doing-it-right/">this
+                            article on bees</a> and <a
+                            href="http://ericposner.com/quadratic-voting/">Eric
+                            Posner's proposal</a>.</p>
+                    <p>It allows you to vote for dinner. Each voter receives the
+                        same number of tokens to vote with. You can vote for a
+                        single item more than once, but the cost of a vote
+                        increases exponentially.</p>
+                    <p>In contrast with Poser's proposal, this prototype takes
+                        the opinion that each person should have the same number
+                        of tokens, rather than allowing votes to be paid for in
+                        cash.</p>
+                </div>
+            </div></qv-app><a
+            href="https://github.com/keithguerin/quadratic-voting"><img
+                style="position: absolute; top: 0; right: 0; border: 0;"
+                src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+                alt="Fork me on GitHub"
+                data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID-->
+        <script>
+    !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+    (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+    }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+    </body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i
+            class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
