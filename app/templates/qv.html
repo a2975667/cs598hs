@@ -22,13 +22,13 @@
         <div class="container">
             <h2>Summary</h2>
             <div>
-                <p style='display:inline'>Submitted </p>
+                <p style='display:inline'>Used </p>
                 <p id="used_votes" style='display:inline'></p>
-                <p style='display:inline'> out of </p>
+                <p style='display:inline'> voice credits out of </p>
                 <p id="total_votes" style='display:inline'></p>
             </div>
             <div class="progress">
-                <div class="determinate" style="width: 70%"></div>
+                <div id='bar' class="determinate" style="width: 0%"></div>
             </div>
             <p>and the submit button</p>
             <div class='btn' id="other">Trigger the handler</div>
@@ -44,8 +44,8 @@
                     <div label for="first_name" class="">
                         {% for option in question['options'] %}
                         <div>
-                            <a class="light-blue lighten-5 waves-effect waves-light plus btn">+1</a>
-                            <a class="light-blue lighten-5 waves-effect waves-light minus btn">-1</a>
+                            <a class="light-blue lighten-5 waves-effect waves-light plus qvbtn btn">+1</a>
+                            <a class="light-blue lighten-5 waves-effect waves-light minus qvbtn btn">-1</a>
                             <p class="qv_option" style="display:inline">{{ option }}</p>
                             <input class="qv_vote" name={{question.qid}}+{{option}} type='qv' style="display:inline" value=0 readonly>
                             <p style="display:inline">votes, costs</p>

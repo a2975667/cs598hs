@@ -19,12 +19,14 @@ $( "#other" ).click(function() {
   $( "#qv_form" ).submit();
 });
 
-$(document).ready(function(){
-	$('select').formSelect();
-});
-
 $(document).ready(function() {
-    $('.plus').click(function() {
+		$('#used_votes').text(0);
+		$('#total_votes').text(qv_total_voice_v1().toString());
+		$('#bar').attr('style', 'width: 0%')
+
+		$('select').formSelect();
+
+		$('.plus').click(function() {
 		var prev_vote = parseInt($(this).siblings('.qv_vote').val())
 		
 		// update vote
@@ -35,11 +37,10 @@ $(document).ready(function() {
 		var new_cost = qv_cal(Math.abs(new_vote))
 		$(this).siblings('.qv_cost').attr("value", new_cost)
 		$(this).siblings('.qv_cost').text(new_cost.toString())
-		console.log(get_total_cost())
-    });
-});
+		get_total_cost()
+		check_clickable()
+		});
 
-$(document).ready(function() {
     $('.minus').click(function() {
 		var prev_vote = parseInt($(this).siblings('.qv_vote').val())
 		
@@ -51,8 +52,8 @@ $(document).ready(function() {
 		var new_cost = qv_cal(Math.abs(new_vote))
 		$(this).siblings('.qv_cost').attr("value", new_cost)
 		$(this).siblings('.qv_cost').text(new_cost.toString())
-
-		console.log(get_total_cost())
+		get_total_cost()
+		check_clickable()
     });
 });
 
@@ -62,6 +63,38 @@ function add(accumulator, a) {
 
 function get_total_cost(){
 	var list_of_cost = $(".qv_cost").map(function(){return parseInt($(this).attr("value"));}).get();
-	return list_of_cost.reduce(add);
+	var total = list_of_cost.reduce(add)
+	$('#used_votes').text(total.toString());
+	$('#bar').attr('style',('width: '+ (total*100/qv_total_voice_v1()).toString() +'%'))
+	return total;
 }
 
+function check_clickable() {
+	var total = qv_total_voice_v1()
+	var current_total = parseInt($('#used_votes').text())
+	$( ".qvbtn" ).each(function( index ) {
+		var actual_value = parseInt($(this).siblings('.qv_vote').val())
+		var current_vote = Math.abs(actual_value)
+
+		// console.log($(this).siblings('.qv_vote').attr('name'), current_vote)
+		// console.log(total, current_total, qv_cal(current_vote+1), total < (current_total + qv_cal(current_vote+1)))
+		if (total < (current_total - qv_cal(current_vote) + qv_cal(current_vote+1))){
+			$(this).each(function(){
+				if (actual_value > 0){
+					if ($(this).hasClass('plus')){
+						$(this).addClass('disabled');
+					}
+				}else if (actual_value < 0){
+					if ($(this).hasClass('minus')){
+						$(this).addClass('disabled');
+					}
+				}else{
+					$(this).addClass('disabled');
+				}
+			})
+		}else{
+			$(this).removeClass('disabled');
+		}
+		//console.log( current_vote );
+	});
+}
