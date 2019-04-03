@@ -9,7 +9,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="/static/qv.css">
+        <link rel="stylesheet" href="../static/qv.css">
         <title>QV!</title>
     </head>
     <body>
@@ -21,6 +21,15 @@
 
         <div class="container">
             <h2>Summary</h2>
+            <div>
+                <p style='display:inline'>Submitted </p>
+                <p id="used_votes" style='display:inline'></p>
+                <p style='display:inline'> out of </p>
+                <p id="total_votes" style='display:inline'></p>
+            </div>
+            <div class="progress">
+                <div class="determinate" style="width: 70%"></div>
+            </div>
             <p>and the submit button</p>
             <div class='btn' id="other">Trigger the handler</div>
         </div>
@@ -92,7 +101,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="static/qv.js"></script>
+        <script src="../static/{{filename}}"></script>
+        <script src="../static/qv_general.js"></script>
     </body>
 
 </html>

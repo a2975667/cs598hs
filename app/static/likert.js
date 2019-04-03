@@ -7,7 +7,7 @@ Survey.StylesManager.applyTheme("bootstrapmaterial");
 var json = json_info
 
 window.survey = new Survey.Model(json);
-
+survey.showCompletedPage = false;
 
 survey.onComplete.add(function (result) {
     $.ajax({
@@ -22,6 +22,7 @@ survey.onComplete.add(function (result) {
         contentType: 'application/json'
       });
 
+      window.location.href = '/complete';
       //alert(JSON.stringify(result.data));
     //document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
 });

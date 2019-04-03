@@ -19,7 +19,7 @@ def welcome():
     else:
         mongo.db.users.insert_one({"userid":userid})
         
-    resp = make_response(render_template('welcome.html', data={}))
+    resp = make_response(render_template('welcome.html', data={'form':''}))
     resp.set_cookie('UserId', userid)
     return resp
 
@@ -42,13 +42,13 @@ def likert():
     url_for('static', filename='likert.css')
     return render_template('likert.html')
 
-@app.route('/qv')
-def dv():
-
-    url_for('static', filename='qv.js')
+@app.route('/qv/<qvid>')
+def dv(qvid):
+    print(qvid)
+    filename='qv'+str(qvid)+'.js'
+    url_for('static', filename=filename)
     url_for('static', filename='qv.css')
-
-    return render_template('qv.html', q_list = questions['questions'])
+    return render_template('qv.html', q_list = questions['questions'],filename=filename)
 
 
     #return "Hello, World!"
