@@ -45,10 +45,11 @@
                 $.get(URL, function(data, status){
                     Cookies.set('script', data["path"]);
                     Cookies.set('next', JSON.stringify(sequence[data["path"]]));
+                    var seq = JSON.parse(Cookies.get('next'));
+                    $('#next').attr("href", seq.shift());
+                    Cookies.set('next', JSON.stringify(seq));
                 });
-                var seq = JSON.parse(Cookies.get('next'))
-                $('#next').attr("href", seq.shift())
-                Cookies.set('next', JSON.stringify(seq));
+
             });
         </script>
 

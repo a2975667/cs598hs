@@ -41,15 +41,16 @@
             function myFunction() {
                 Cookies.remove('next');
                 var path = Cookies.get('script')
-                var data = {'path': Cookies.get('script')}
-                console.log(data)
-
+                var data = {'path': Cookies.get('script'),
+                            'userid':Cookies.get('UserId')}
                 $.ajax({
                     type: "POST",
                     url: "/api/updateScript",
                     data: JSON.stringify(data),
                     success: function(result) {
                         alert('Done.');
+                        Cookies.remove('script');
+                        Cookies.remove('UserId');
                         window.location.href = '/';
                     },
                     dataType: "json",

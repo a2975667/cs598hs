@@ -16,8 +16,8 @@ def welcome():
     userid = str(uuid.uuid4().hex[:15].upper())
     while mongo.db.users.find_one({"userid":userid}) is not None:
         userid = str(uuid.uuid4().hex[:15].upper())
-    else:
-        mongo.db.users.insert_one({"userid":userid})
+    # else:
+    #     mongo.db.users.insert_one({"userid":userid}) # move this to complete function
         
     resp = make_response(render_template('welcome.html', data={'form':''}))
     resp.set_cookie('UserId', userid)
@@ -31,8 +31,8 @@ def demographic(likertID):
 @app.route('/complete')
 def complete():
     resp = make_response(render_template('thankyou.html', data={}))
-    resp.set_cookie('UserId', '', expires=0)
-    # TODO: remove uid without response in mlab.users
+    # resp.set_cookie('UserId', '', expires=0)
+    # TODO: move save to user here
     return resp
 
 
@@ -84,10 +84,8 @@ def get_script():
 @app.route('/api/updateScript', methods=['POST'])
 def update_script():
     data = request.json
-    
-    print(data)
-
     mongo.db.path.update({'path': str(data['path'])}, {'$inc': {'count': 1}})
+    mongo.db.users.insert_one({"userid":data['userid']})
     return str(data)
 
 @app.route('/test', methods=['POST'])
