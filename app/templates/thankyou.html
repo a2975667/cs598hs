@@ -29,7 +29,34 @@
             </p>
         </div>
         <div class="container">
-            <a class="waves-effect waves-light btn-small" href='/'>Submit another response</a>
+            <button id='complete' onclick="myFunction()" class="waves-effect waves-light btn-small" href='/'>Complete</button>
             <a class="waves-effect waves-light btn-small">A button without use</a>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script>
+            
+
+
+            function myFunction() {
+                Cookies.remove('next');
+                var path = Cookies.get('script')
+                var data = {'path': Cookies.get('script')}
+                console.log(data)
+
+                $.ajax({
+                    type: "POST",
+                    url: "/api/updateScript",
+                    data: JSON.stringify(data),
+                    success: function(result) {
+                        alert('Done.');
+                        window.location.href = '/';
+                    },
+                    dataType: "json",
+                    contentType: 'application/json'
+                });
+                window.location.href = '/';
+            }
+            
+        </script>
     </body>

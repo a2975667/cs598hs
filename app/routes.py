@@ -75,6 +75,21 @@ def likert_list():
 def likert_ID(likertID):
     return str(likertID)
 
+@app.route('/api/getScript')
+def get_script():
+    path = mongo.db.path.find().sort([("count", 1)]).limit(1)[0]
+    print(path['path'])
+    return jsonify({"path": path['path']})
+
+@app.route('/api/updateScript', methods=['POST'])
+def update_script():
+    data = request.json
+    
+    print(data)
+
+    mongo.db.path.update({'path': str(data['path'])}, {'$inc': {'count': 1}})
+    return str(data)
+
 @app.route('/test', methods=['POST'])
 def test():
     data = request
