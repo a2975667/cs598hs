@@ -48,7 +48,7 @@
                 <div id='bar' class="determinate" style="width: 0%"></div>
             </div>
             <p>and the submit button</p>
-            <div class='btn' id="other">Trigger the handler</div>
+            <div class='btn' id="other">Submit</div>
         </div>
         
         <!--Section with all the questions-->
@@ -58,7 +58,7 @@
                     <!--if question is QV-->
                     {% if question['type'] == 'qv' %}
                     <h3>{{ question['question'] }}</h3>
-                    <div label for="first_name" class="">
+                    <div label class="">
                         {% for option in question['options'] %}
                         <div>
                             <a class="light-blue lighten-5 waves-effect waves-light plus qvbtn btn">+1</a>
@@ -74,8 +74,13 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                    
+                    <!--if question is puretext-->
+                    {% if question['type'] == 'title' %}
+                    <h2>{{ question['content'] }}</h2>
+                    {% endif %}
 
-                    <!--if question is text-->
+                    <!--if question is textinput-->
                     {% if question['type'] == 'short_question' %}
                     <h3>{{ question['question'] }}</h3>
                     <div class="input-field col s12">

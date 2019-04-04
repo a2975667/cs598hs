@@ -1,75 +1,63 @@
 {"questions":[
     {
+        "type":"title",
+        "content":"Question: I would be willing to allow XYZ Advertising Company to use and store the following information. This information will be retained [indefinitely\/one day].*"
+    },
+    {
         "qid":1,
         "type":"qv",
-        "question":"This is a QV question",
+        "question":"Computer information",
         "options":[
-            "Option1",
-            "Option2",
-            "Option3"
+            "The IP address of my computer",
+            "The name and version of the web browser I use to visit the WebMD website"
         ]
     },
     {
         "qid":2,
-        "type":"short_question",
-        "question":"This is a short question",
-        "options":[]
+        "type":"qv",
+        "question":"Demographic and preference information",
+        "options":[
+            "My gender",
+            "My income bracket",
+            "My religion",
+            "My marital status",
+            "My hobbies"        
+        ]
     },
     {
         "qid":3,
         "type":"qv",
-        "question":"This is a QV2 question",
+        "question":"Interaction with WebMD website",
         "options":[
-            "Option12",
-            "Option22",
-            "Option32"
+            "The pages I've visited on the WebMD website",
+            "My weight and height",
+            "How long I spent on each page of the WebMD website"
         ]
     },
     {
         "qid":4,
-        "type":"choice",
+        "type":"Location information",
         "question":"This is a choice question",
         "options":[
-            "Option1",
-            "Option2",
-            "Option3"
+            "The country from which I'm visiting the WebMD website",
+            "The town or city from which I'm visiting the WebMD website",
+            "The exact address from which I'm visiting the WebMD website"
         ]
     },
     {
         "qid":5,
         "type":"qv",
-        "question":"This is a QV3 question",
+        "question":"Personal information",
         "options":[
-            "Option1",
-            "Option2",
-            "Option3"
+            "My email address",
+            "My phone number",
+            "My credit card number"
         ]
     },
     {
         "qid":6,
         "type":"short_question",
-        "question":"This is a short question3",
+        "question":"Please use a few sentences to explain your votes distribution above.",
         "options":[]
-    },
-    {
-        "qid":7,
-        "type":"qv",
-        "question":"This is a QV4 question",
-        "options":[
-            "Option12",
-            "Option22",
-            "Option32"
-        ]
-    },
-    {
-        "qid":8,
-        "type":"choice",
-        "question":"This is a choice2 question",
-        "options":[
-            "Option1",
-            "Option2",
-            "Option3"
-        ]
     }
-
 ]}
