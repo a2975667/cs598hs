@@ -1,9 +1,5 @@
 {"questions":[
     {
-        "type":"title",
-        "content":"Question: I would be willing to allow XYZ Advertising Company to use and store the following information. This information will be retained [indefinitely\/one day].*"
-    },
-    {
         "qid":1,
         "type":"qv",
         "question":"Computer information",
