@@ -1,18 +1,5 @@
 {"questions":[
     {
-        "type":"title",
-        "content":"Question: I would be willing to allow XYZ Advertising Company to use and store the following information. This information will be retained [indefinitely\/one day].*"
-    },
-    {
-        "qid":1,
-        "type":"qv",
-        "question":"Computer information",
-        "options":[
-            "The IP address of my computer",
-            "The name and version of the web browser I use to visit the WebMD website"
-        ]
-    },
-    {
         "qid":2,
         "type":"qv",
         "question":"Demographic and preference information",

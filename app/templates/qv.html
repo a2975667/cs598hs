@@ -36,7 +36,7 @@
             
         </div>
 
-        <div class="container">
+        <div class="container summary">
             <h2>Summary</h2>
             <div>
                 <p style='display:inline'>Used </p>
@@ -49,8 +49,9 @@
             </div>
             <p>and the submit button</p>
             <div class='btn' id="other">Submit</div>
+            <br>
         </div>
-        
+
         <!--Section with all the questions-->
         <form id='qv_form' class="container">
             <div>
@@ -60,7 +61,7 @@
                     <h3>{{ question['question'] }}</h3>
                     <div label class="">
                         {% for option in question['options'] %}
-                        <div>
+                        <div class='option'>
                             <a class="light-blue lighten-5 waves-effect waves-light plus qvbtn btn">+1</a>
                             <a class="light-blue lighten-5 waves-effect waves-light minus qvbtn btn">-1</a>
                             <p class="qv_option" style="display:inline">{{ option }}</p>
@@ -68,8 +69,6 @@
                             <p style="display:inline">votes, costs</p>
                             <p class="qv_cost" style='display:inline' value=0 readonly>0</p>
                             <p style="display:inline">voice credits</p>
-                            <br>
-                            <br>
                         </div>
                         {% endfor %}
                     </div>
@@ -77,7 +76,7 @@
                     
                     <!--if question is puretext-->
                     {% if question['type'] == 'title' %}
-                    <h2>{{ question['content'] }}</h2>
+                    <h3 class='qv_title'>{{ question['content'] }}</h3>
                     {% endif %}
 
                     <!--if question is textinput-->
@@ -99,9 +98,6 @@
                     </select>
                     <!-- </div> -->
                     {% endif %}
-
-                <br>
-                <br>
                 {% endfor %}
             
             </div>
