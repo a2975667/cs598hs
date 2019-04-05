@@ -151,7 +151,7 @@ var json_info = {
                     name: "Q10_internet experience",
                     title: "Have you ever...? (Select all that apply)",
                     isRequired: true,
-                    colCount: 0,
+                    colCount: 1,
                     choices: ["...purchased a product or service online (e.g., music, books, clothing, etc.)"
                     , "...used a social networking site (e.g., Facebook, Twitter, LinkedIn, MySpace, etc.)"
                     , "...clicked on an ad that appeared on a website to get more information about the advertised product"
@@ -288,7 +288,7 @@ var json_info = {
                     type: "checkbox",
                     name: "Q17_info confirm 1",
                     isRequired: true,
-                    colCount: 0,
+                    colCount: 1,
                     title: "Based on the information that you just read, which of the following are examples of the types of targeted ads that might occur as a result of your visit to WebMD? (Choose any that apply)",
                     choices: ["You see ads for bicycles on WebMD since studies have found that many visitors to WebMD are bicycle enthusiasts"
                         , "You see ads for Acme cough syrup on Facebook because you read about cough remedies on WebMD"
