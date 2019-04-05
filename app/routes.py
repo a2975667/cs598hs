@@ -45,7 +45,6 @@ def likert():
 
 @app.route('/qv/<qvid>')
 def dv(qvid):
-    print(qvid)
     filename='qv'+str(qvid)+'.js'
     url_for('static', filename=filename)
     url_for('static', filename='qv.css')
@@ -80,7 +79,6 @@ def likert_ID(likertID):
 @app.route('/api/getScript')
 def get_script():
     path = mongo.db.path.find().sort([("count", 1)]).limit(1)[0]
-    print(path['path'])
     return jsonify({"path": path['path']})
 
 @app.route('/api/updateScript', methods=['POST'])

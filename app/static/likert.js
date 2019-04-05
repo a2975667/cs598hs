@@ -30,7 +30,6 @@ survey.onComplete.add(function (result) {
         url: submit_url,
         data: JSON.stringify(result.data),
         success: function (result) {
-            alert('Done.')
             window.location.href = next_url;
         },
         dataType: "json",

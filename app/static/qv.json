@@ -32,7 +32,7 @@
     },
     {
         "qid":4,
-        "type":"Location information",
+        "type":"qv",
         "question":"This is a choice question",
         "options":[
             "11) The country from which I'm visiting the WebMD website",

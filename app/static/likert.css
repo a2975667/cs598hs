@@ -1,6 +1,9 @@
 body {
     background-color: #fff;
 }
+span{
+    color: black
+}
 .my-rating {
     font-size: 12px;
 }

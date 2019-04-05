@@ -4,14 +4,11 @@ $("#qv_form").submit(function (event) {
 	Cookies.set('next', JSON.stringify(seq));
 
 	var formData = JSON.stringify($("#qv_form").serializeArray());
-	alert("Handler for .submit() called.");
-	alert(formData);
 	$.ajax({
 		type: "post",
 		url: submit_url,
 		data: formData,
 		success: function (result) {
-			alert('Done.');
 			window.location.href = next_url;
 		},
 		dataType: "json",
