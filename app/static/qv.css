@@ -5,7 +5,7 @@ input {
     color: black;
 }
 
-.btn{
+.btn {
     background-color: #3BA7BF;
 }
 
@@ -23,7 +23,7 @@ input {
 
 .qvbtn {
     padding: 1px 8px 1px 8px;
-    width:3em;
+    width: 3em;
 }
 
 h1 {
@@ -51,7 +51,7 @@ a.disabled {
     margin: 0.3em;
 }
 
-.summary{
+.summary {
     background: rgba(193, 238, 243, 0.664);
     margin-top: 2em;
     margin-bottom: 3em;
@@ -59,27 +59,50 @@ a.disabled {
     padding-bottom: 3em;
 }
 
-.progress{
+.progress {
     height: 10px;
     background: rgb(91, 197, 221);
 }
-.progress .determinate{
+
+.progress .determinate {
     background: #195973;
 }
 
-.option{
+.option {
     margin: 0.5em;
 }
 
-.qv_option{
+.qv_option {
     vertical-align: text-bottom;
 }
 
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(128, 128, 128, 0.8);
+    z-index: 9999;
+}
 
 /* Color Theme Swatches in Hex */
-.Dark-blue-ocean-surface-seen-from-underwater-1-hex { color: #195973; }
-.Dark-blue-ocean-surface-seen-from-underwater-2-hex { color: #3BA7BF; }
-.Dark-blue-ocean-surface-seen-from-underwater-3-hex { color: #053A40; }
-.Dark-blue-ocean-surface-seen-from-underwater-4-hex { color: #63E4F2; }
-.Dark-blue-ocean-surface-seen-from-underwater-5-hex { color: #66D9D9; }
+.Dark-blue-ocean-surface-seen-from-underwater-1-hex {
+    color: #195973;
+}
 
+.Dark-blue-ocean-surface-seen-from-underwater-2-hex {
+    color: #3BA7BF;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-3-hex {
+    color: #053A40;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-4-hex {
+    color: #63E4F2;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-5-hex {
+    color: #66D9D9;
+}

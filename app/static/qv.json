@@ -1,5 +1,14 @@
 {"questions":[
     {
+        "qid":1,
+        "type":"qv",
+        "question":"Computer information",
+        "options":[
+            "The IP address of my computer",
+            "The name and version of the web browser I use to visit the WebMD website"
+        ]
+    },
+    {
         "qid":2,
         "type":"qv",
         "question":"Demographic and preference information",

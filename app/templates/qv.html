@@ -10,30 +10,31 @@
             crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/qv.css">
+        <link rel="stylesheet" href="../static/qv.css">        
         <title>QV!</title>
     </head>
     <body>
+        <div id="cover"><img id="loading_img" src='/static/loading.gif' style="min-width: 100%;"></div>
         <!--Section with all the text and explanation-->
         <div class="container">
             <h1>Quadratic Voting</h1>
-            <div id="binary">
+            <div id="binary" style="display: none">
                 <h2>Instruction for Binary Quadratic Voting</h2>
                 <p>
-                    For the following questions, you will use a <b>Binary Quadratic Voting</b> method to express your preferences.
+                    For the following question, you will use a <b>Binary Quadratic Voting</b> method to express your preferences.
                     <br /><br />
                     You will be given a budget of a certain number of voice credits. You will use the available credits to cast votes.
                     If you are willing to share the specified kind of information with XYZ Advertising Company,
                     you can cast a number of <b>upvotes using the “+1” sign</b>. If you are against the idea of sharing a kind of information,
                     you can cast a number of <b>downvotes using the “-1” sign</b>.
-                    If you are neutral or feel less strong for a kind of information compared to others, you can choose to cast <b>no vote</b>.
+                    If you are neutral or feel less strongly for a kind of information compared to others, you can choose to cast <b>no vote</b>.
 
                     <br /><br />
                     Based on the intensity of your opinion, you can cast 1 or more upvotes or downvotes for each kind of information.
                     The stronger your opinion is, the more votes you can put on one option.
                     At the same time, as the number of votes increases, the voice credits it costs increases quadratically,
                     i.e. <b>X votes will cost X^2 (square of X) credits</b>.
-                    The cost of some common number of votes is specified in the table below:
+                    The total cost of some common number of votes is specified in the table below:
                 </p>
                 <table style="width:100%">
                     <tr>
@@ -65,6 +66,7 @@
                 </table>
                 <br>
                 <p>
+                    <br/>
                     <b>You cannot exceed the budget of given voice credits for each question,
                         but you do not have to use up all the available credits either.</b>
                     You can see the total number of voice credits you have and how many credits you have spent
@@ -72,27 +74,94 @@
                     <br /><br />
                     <b>As an example</b>, imagine that you are given a total of 5 voice credits to vote on information A, B and C.
                     <br /><br />
-                    <b>Case 1:</b> If you feel equally strong for all of them, one way to vote is to cast 1 upvote or downvote on each kind of information,
+                    <b>Case 1:</b> If you feel equally strongly about all of them, one way to vote is to cast 1 upvote or downvote on each kind of information,
                     which will cost 3 voice credits in total.
                     <br />
-                    <b>Case 2:</b> If you feel particularly strong for information A but not so much for C, another way to vote is to cast 2 votes (cost 4 credits) on A, 1 vote (cost 1 credit) on B, and 0 vote (cost 0 credit) on C, which will cost 5 credits in total.
+                    <b>Case 2:</b> If you feel particularly strongly about information A but not so much for C, another way to vote is to cast 2 votes (cost 4 credits) on A, 1 vote (cost 1 credit) on B, and 0 vote (cost 0 credit) on C, which will cost 5 credits in total.
                     In the second case, you cannot cast any more vote on C because the votes on A and B already use up the budget of 5 credits.
                 </p>
 
+            </div>
+
+            <div id="partial" style="display: none">
+                <h2>Instruction for Partial Binary Quadratic Voting</h2>
+                <p>
+                    For the following question, you will use a <b>Partial Binary Quadratic Voting</b> method to express your preferences.
+                    <br /><br />
+                    Similar to Binary Quadratic Voting, you will be given a budget of a certain number of voice credits.
+                    You will use the available credits to cast votes.
+                    If you are willing to share the specified kind of information with XYZ Advertising Company,
+                    you can cast a number of <b>upvotes using the “+1” sign</b>. If you are against the idea of sharing a kind of information,
+                    you can cast a number of <b>downvotes using the “-1” sign</b>.
+                    If you are neutral or feel less strongly for a kind of information compared to others, you can choose to cast <b>no vote</b>.
+                    Based on the intensity of your opinion, you can cast 1 or more upvotes or downvotes for each kind of information.
+                    The stronger your opinion is, the more votes you can put on one option.
+                    <br /><br />
+
+                    For the first and second vote, they each cost only 1 voice credit.
+                    Starting with the third vote, as the number of votes increases, the credits it costs increases quadratically,
+                    i.e. <b>X votes after 2 votes will cost X^2 (square of X) points</b>.
+                    The total cost of some common number of votes is specified in the table below:
+                </p>
+                <table style="width:100%">
+                    <tr>
+                        <th>Number of up or down votes</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th>Cost in number of voice credits</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>11</td>
+                        <td>18</td>
+                        <td>27</td>
+                        <td>38</td>
+                        <td>51</td>
+                        <td>66</td>
+                    </tr>
+                </table>
+
+                <p>
+                    <br/>
+                    <b>You cannot exceed the budget of given voice credits for each question,
+                        but you do not have to use up all the available credits either.</b>
+                    You can see the total number of voice credits you have and how many credits you have spent
+                    already in the <b>“Summary” section</b> below.
+                    <br /><br />
+                    <b>As an example</b>, imagine that you are given a total of 6 voice credits to vote on information A, B and C.
+                    <br /><br />
+                    <b>Case 1:</b> If you feel equally strongly for all of them,
+                    one way to vote is to cast 2 upvote or downvote on each kind of information, which will cost 6 credits in total.
+                    <br />
+                    <b>Case 2:</b> If you feel particularly strongly for information A but not so much for B or C,
+                    another way to vote is to cast 4 votes (cost 6 credits) on A, 0 vote on B and C (cost 0 credit), which will cost 6 credits in total.
+                    In the second case, you cannot cast any more vote on C because the votes on A and B already use up the budget of 6 credits.
+                </p>
             </div>
 
             <div>
                 <h2>Question</h2>
                 <p style="display:inline">
                     Suppose that you use only your home computer to access the WebMD website, and that nobody else uses this computer.
-                    Based only on the information that your read above, please use <b>Binary Quadratic Voting</b> to indicate what information you would allow
+                    Based only on the information that your read above, please use <b class='type'>Binary Quadratic Voting</b> to indicate what information you would allow
                     XYZ Advertising Company to collect for the purpose of showing you targeted ads only on the WebMD website.
                     This information will be retained for one day.
                     <br/><br/>
-                    Using Binary Quadratic Voting, you have a total of <b> <div class='total_votes' style="display:inline"></div></b> <b>points</b> for the following <b> <div class='total_votes' style="display:inline"></div> kinds of information</b>. You do not need to use up all the points, but you cannot exceed <div  class='total_votes' style="display:inline"></div> points.
+                    Using <div class='type' style="display:inline;"></div>, you have a total of <div class='total_votes' style="display:inline; font-weight: bold;"></div> <b>points</b> for the following <b>13 kinds of information</b>. You do not need to use up all the points, but you cannot exceed <div  class='total_votes' style="display:inline"></div> points.
                 </p>
             </div>
-            
+
         </div>
 
         <div class="container summary">

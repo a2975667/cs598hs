@@ -48,6 +48,7 @@ def dv(qvid):
     filename='qv'+str(qvid)+'.js'
     url_for('static', filename=filename)
     url_for('static', filename='qv.css')
+    url_for('static', filename='loading.gif')
     return render_template('qv.html', q_list = questions['questions'],filename=filename)
 
 

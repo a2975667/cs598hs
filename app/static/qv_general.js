@@ -26,6 +26,17 @@ $("#other").click(function () {
 });
 
 $(document).ready(function () {
+	var page_url = window.location.pathname;
+
+	if (page_url == '/qv/4'){
+		$("#partial").show();
+		$('.type').text('Partial Binary Quadratic Voting');
+	}else{
+		$("#binary").show();
+		$('.type').text('Binary Quadratic Voting');
+	}
+
+
 	$('#used_votes').text(0);
 	$('#total_votes').text(qv_total_voice().toString());
 	$('.total_votes').text(qv_total_voice().toString());
@@ -134,3 +145,7 @@ function check_clickable() {
 		//console.log( current_vote );
 	});
 }
+
+$(window).on('load', function() {
+	$("#cover").hide();
+});
