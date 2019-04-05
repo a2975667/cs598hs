@@ -9,14 +9,15 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/qv.css">
         <title>QV!</title>
     </head>
     <body>
         <!--Section with all the text and explanation-->
         <div class="container">
-            <h1>Hello, world!</h1>
-            <div class='container'>
+            <h1>Quadratic Voting</h1>
+            <div id="binary">
                 <h2>Instruction for Binary Quadratic Voting</h2>
                 <p>
                     For the following questions, you will use a <b>Binary Quadratic Voting</b> method to express your preferences.
@@ -62,7 +63,7 @@
                         <td>100</td>
                     </tr>
                 </table>
-
+                <br>
                 <p>
                     <b>You cannot exceed the budget of given voice credits for each question,
                         but you do not have to use up all the available credits either.</b>
@@ -80,16 +81,15 @@
 
             </div>
 
-            <div class='container'>
+            <div>
                 <h2>Question</h2>
-                <p>
+                <p style="display:inline">
                     Suppose that you use only your home computer to access the WebMD website, and that nobody else uses this computer.
                     Based only on the information that your read above, please use <b>Binary Quadratic Voting</b> to indicate what information you would allow
                     XYZ Advertising Company to collect for the purpose of showing you targeted ads only on the WebMD website.
                     This information will be retained for one day.
                     <br/><br/>
-                    Using Binary Quadratic Voting, you have a total of <b>16 points</b> for the following <b>16 kinds of information</b>.
-                    You do not need to use up all the points, but you cannot exceed 16 points.
+                    Using Binary Quadratic Voting, you have a total of <b> <div class='total_votes' style="display:inline"></div></b> <b>points</b> for the following <b> <div class='total_votes' style="display:inline"></div> kinds of information</b>. You do not need to use up all the points, but you cannot exceed <div  class='total_votes' style="display:inline"></div> points.
                 </p>
             </div>
             
@@ -106,7 +106,6 @@
             <div class="progress">
                 <div id='bar' class="determinate" style="width: 0%"></div>
             </div>
-            <p>and the submit button</p>
             <div class='btn' id="other">Submit</div>
             <br>
         </div>
@@ -123,12 +122,18 @@
                         <div class='option'>
                             <a class="light-blue lighten-5 waves-effect waves-light plus qvbtn btn">+1</a>
                             <a class="light-blue lighten-5 waves-effect waves-light minus qvbtn btn">-1</a>
-                            <p class="qv_option" style="display:inline">{{ option }}</p>
+                            <h4 class="qv_option" style="display:inline; margin-left:1em; margin-right:1em;">{{ option }}</h4>
+                            <div class='placeholder' style="display:inline;"></div>
+                            <!-- <i class="far fa-check-circle icon" style="display:inline; color:green; vertical-align: text-bottom;"></i>
+                            <i class="far fa-times-circle icon" style="display:inline; color:red; vertical-align: text-bottom;"></i> -->
+                            <br>
+                            <p style="display:inline">Used</p>
                             <input class="qv_vote" name={{question.qid}}+{{option}} type='qv' style="display:inline" value=0 readonly>
                             <p style="display:inline">votes, costs</p>
                             <p class="qv_cost" style='display:inline' value=0 readonly>0</p>
                             <p style="display:inline">voice credits</p>
                         </div>
+                        <br>
                         {% endfor %}
                     </div>
                     {% endif %}

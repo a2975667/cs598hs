@@ -28,6 +28,7 @@ $("#other").click(function () {
 $(document).ready(function () {
 	$('#used_votes').text(0);
 	$('#total_votes').text(qv_total_voice().toString());
+	$('.total_votes').text(qv_total_voice().toString());
 	$('#bar').attr('style', 'width: 0%')
 
 	$('select').formSelect();
@@ -45,6 +46,19 @@ $(document).ready(function () {
 		$(this).siblings('.qv_cost').text(new_cost.toString())
 		get_total_cost()
 		check_clickable()
+
+		var replace_icon = ''
+		if (new_vote >= 0) {
+			for (var i=0; i<new_vote; i++){
+				replace_icon = replace_icon + "<i class='far fa-check-circle icon' style='display:inline; color:green; vertical-align: text-bottom;'></i>"
+			}
+		}else{
+			for (var i=0; i<Math.abs(new_vote); i++){
+				replace_icon = replace_icon + "<i class='far fa-times-circle icon' style='display:inline; color:red; vertical-align: text-bottom;'></i>"
+			}
+		}
+		
+		$(this).siblings('.placeholder').html(replace_icon);
 	});
 
 	$('.minus').click(function () {
@@ -60,6 +74,20 @@ $(document).ready(function () {
 		$(this).siblings('.qv_cost').text(new_cost.toString())
 		get_total_cost()
 		check_clickable()
+
+		var replace_icon = ''
+		if (new_vote >= 0) {
+			for (var i=0; i<new_vote; i++){
+				replace_icon = replace_icon + "<i class='far fa-check-circle icon' style='display:inline; color:green; vertical-align: text-bottom;'></i>"
+			}
+		}else{
+			for (var i=0; i<Math.abs(new_vote); i++){
+				replace_icon = replace_icon + "<i class='far fa-times-circle icon' style='display:inline; color:red; vertical-align: text-bottom;'></i>"
+			}
+		}
+		
+		$(this).siblings('.placeholder').html(replace_icon);
+
 	});
 });
 
