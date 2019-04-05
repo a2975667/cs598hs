@@ -66,7 +66,14 @@ var json_info = {
                     type: "text",
                     name: "Q4_age",
                     title: "What's your age (in years)?",
-                    isRequired: true
+                    isRequired: true,
+                    validators: [
+                        {
+                            type: "numeric",
+                            minValue: 18,
+                            maxValue: 120
+                        }
+                    ]
                 },
                 {
                     type: "dropdown",
