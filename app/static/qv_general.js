@@ -8,7 +8,7 @@ $("#qv_form").submit(function (event) {
 	alert(formData);
 	$.ajax({
 		type: "post",
-		url: "/test",
+		url: submit_url,
 		data: formData,
 		success: function (result) {
 			alert('Done.');

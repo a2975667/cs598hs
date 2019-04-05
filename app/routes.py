@@ -4,6 +4,7 @@ from flask import render_template, make_response
 import json.decoder
 import os
 import uuid 
+from pprint import pprint
 
 
 filename = os.path.join(app.static_folder, 'qv.json')
@@ -87,50 +88,88 @@ def update_script():
     data = request.json
     mongo.db.path.update({'path': str(data['path'])}, {'$inc': {'count': 1}})
     mongo.db.users.insert_one({"userid":data['userid']})
-    return str(data)
+    return jsonify({'ok': True}), 200
 
-@app.route('/test', methods=['POST'])
-def test():
-    data = request
-    print("hehe" + str(request.json))
-    #print(request.get_json())
-    #print(request)
-    return str(data)
+@app.route('/submit_qv1', methods=['POST'])
+def submit_qv1():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "qv1",
+        "results":data
+    }
+    mongo.db.result_qv1.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
-# @app.route('/user', methods=['GET', 'POST', 'DELETE', 'PATCH'])
-# def user():
-#     print(request)
-#     if request.method == 'GET':
-#         query = request.args
-#         data = mongo.db.users.find_one(query)
-#         return jsonify(data), 200
+@app.route('/submit_qv2', methods=['POST'])
+def submit_qv2():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "qv2",
+        "results":data
+    }
+    mongo.db.result_qv2.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
-#     data = request.get_json()
-#     print(data)
-#     if request.method == 'POST':
+@app.route('/submit_qv3', methods=['POST'])
+def submit_qv3():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "qv3",
+        "results":data
+    }
+    mongo.db.result_qv3.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
-#         if data.get('name', None) is not None and data.get('email', None) is not None:
-#             print(data)
-#             mongo.db.users.insert_one(data)
-#             return jsonify({'ok': True, 'message': 'User created successfully!'}), 200
-#         else:
-#             return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
+@app.route('/submit_qv4', methods=['POST'])
+def submit_qv4():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "qv4",
+        "results":data
+    }
+    mongo.db.result_qv4.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
-    # if request.method == 'DELETE':
-    #     if data.get('email', None) is not None:
-    #         db_response = mongo.db.users.delete_one({'email': data['email']})
-    #         if db_response.deleted_count == 1:
-    #             response = {'ok': True, 'message': 'record deleted'}
-    #         else:
-    #             response = {'ok': True, 'message': 'no record found'}
-    #         return jsonify(response), 200
-    #     else:
-    #         return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
+@app.route('/submit_likert', methods=['POST'])
+def submit_likert():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "likert",
+        "results":data
+    }
+    mongo.db.result_likert.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
-    # if request.method == 'PATCH':
-    #     if data.get('query', {}) != {}:
-    #         mongo.db.users.update_one(
-    #             data['query'], {'$set': data.get('payload', {})})
-    #         return jsonify({'ok': True, 'message': 'record updated'}), 200
-    #     else:
-    #         return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
+@app.route('/submit_demographic', methods=['POST'])
+def submit_demographic():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "likert",
+        "results":data
+    }
+    mongo.db.result_demographic.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
+
+@app.route('/submit_followup', methods=['POST'])
+def submit_followup():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "likert",
+        "results":data
+    }
+    mongo.db.result_followup.insert_one(insert_data)
+    return jsonify({'ok': True}), 200

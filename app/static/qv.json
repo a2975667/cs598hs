@@ -4,8 +4,8 @@
         "type":"qv",
         "question":"Computer information",
         "options":[
-            "The IP address of my computer",
-            "The name and version of the web browser I use to visit the WebMD website"
+            "1) The IP address of my computer",
+            "2) The name and version of the web browser I use to visit the WebMD website"
         ]
     },
     {
@@ -13,11 +13,11 @@
         "type":"qv",
         "question":"Demographic and preference information",
         "options":[
-            "My gender",
-            "My income bracket",
-            "My religion",
-            "My marital status",
-            "My hobbies"        
+            "3) My gender",
+            "4) My income bracket",
+            "5) My religion",
+            "6) My marital status",
+            "7) My hobbies"        
         ]
     },
     {
@@ -25,9 +25,9 @@
         "type":"qv",
         "question":"Interaction with WebMD website",
         "options":[
-            "The pages I've visited on the WebMD website",
-            "My weight and height",
-            "How long I spent on each page of the WebMD website"
+            "8) The pages I've visited on the WebMD website",
+            "9) My weight and height",
+            "10) How long I spent on each page of the WebMD website"
         ]
     },
     {
@@ -35,9 +35,9 @@
         "type":"Location information",
         "question":"This is a choice question",
         "options":[
-            "The country from which I'm visiting the WebMD website",
-            "The town or city from which I'm visiting the WebMD website",
-            "The exact address from which I'm visiting the WebMD website"
+            "11) The country from which I'm visiting the WebMD website",
+            "12) The town or city from which I'm visiting the WebMD website",
+            "13) The exact address from which I'm visiting the WebMD website"
         ]
     },
     {
@@ -45,9 +45,9 @@
         "type":"qv",
         "question":"Personal information",
         "options":[
-            "My email address",
-            "My phone number",
-            "My credit card number"
+            "14) My email address",
+            "15) My phone number",
+            "16) My credit card number"
         ]
     },
     {

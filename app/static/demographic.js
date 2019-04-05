@@ -66,7 +66,7 @@ var json_info = {
                     type: "text",
                     name: "Q4_age",
                     title: "What's your age (in years)?",
-                    isRequired:true
+                    isRequired: true
                 },
                 {
                     type: "dropdown",
@@ -163,8 +163,14 @@ var json_info = {
             ]
         },
         {
-            title: "Visiting a healthcare website<br /><br />Clicking on the link below will open a new tab or window in your browser displaying a version of the WebMD website homepage with links disabled. Please look through this page at your own pace and make sure to scroll down and look at the entire page. Then, answer the following questions. Feel free to review the opened tab as many times as you want to answer these questions.<br /><br />Click here to visit the WebMD homepage: https://www.webmd.com/",
-            questions: [{
+            title: "",
+            questions: [
+                {
+                    type: "html",
+                    name: "info",
+                    html: "<h3>Visiting a healthcare website</h3><h4>Clicking on the link below will open a new tab or window in your browser displaying a version of the WebMD website homepage with links disabled. Please look through this page at your own pace and make sure to scroll down and look at the entire page. Then, answer the following questions. Feel free to review the opened tab as many times as you want to answer these questions.<br><br> Click here to visit the WebMD homepage: <a href='https://www.webmd.com/' target='_blank'>https://www.webmd.com/</a></h4>"
+                },
+                {
                     type: "checkbox",
                     name: "Q11_website health condition",
                     title: "Please select from the list below at least three of the health conditions that appear on the bottom section of the WebMD homepage.",

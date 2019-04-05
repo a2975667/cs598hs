@@ -5,9 +5,19 @@ Survey.defaultBootstrapMaterialCss.rating.item = "btn btn-default my-rating";
 Survey.StylesManager.applyTheme("bootstrapmaterial");
 
 var json = json_info
+var page_url = window.location.pathname;
+var submit_url = ''
+if (page_url == '/normal/demographic'){
+    submit_url='/submit_demographic'
+}else if (page_url == '/normal/likert_version'){
+    submit_url='/submit_likert'
+}else{
+    submit_url='/submit_followup'
+}
 
 window.survey = new Survey.Model(json);
 survey.showCompletedPage = false;
+survey.completeText = 'Next'
 
 survey.onComplete.add(function (result) {
     
@@ -17,7 +27,7 @@ survey.onComplete.add(function (result) {
 
     $.ajax({
         type: "post",
-        url: "/test",
+        url: submit_url,
         data: JSON.stringify(result.data),
         success: function (result) {
             alert('Done.')

@@ -6,3 +6,5 @@ function qv_total_voice(){
 	var total_votes = $(".qv_cost").length
 	return Math.pow(total_votes/2, 2)
 }
+
+var submit_url = '/submit_qv3'
