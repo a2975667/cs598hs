@@ -169,7 +169,7 @@ var json_info = {
                     , "...clicked on an ad that appeared on a website to get more information about the advertised product"
                     , "...accidentally clicked on an ad that appeared on a website"
                     , "...visited health, wellness, or medical information websites (e.g., MayoClinic, MyFitnessPal, Men's Health, etc.)"
-                    , "...used a search engine to find information about a medical condition",
+                    , "...used a search engine to find information about a medical condition"
                     , "None of above"
                     ]
                 }
@@ -313,7 +313,7 @@ var json_info = {
                         , "You see ads for Acme cough syrup on Facebook because you read about cough remedies on WebMD"
                         , "You see ads for Acme cough syrup on WebMD because a friend emailed you information about cough remedies"
                         , "You see ads for Acme cough syrup on WebMD because you read about cough remedies on WebMD"
-                        , "You see ads for Acme cough syrup on www.WashingtonPost.com because you read about cough remedies on WebMD",
+                        , "You see ads for Acme cough syrup on www.WashingtonPost.com because you read about cough remedies on WebMD"
                         , "None of above"
                         ]
                 },
