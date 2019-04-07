@@ -1,21 +1,27 @@
 $("#qv_form").submit(function (event) {
-	var seq = JSON.parse(Cookies.get('next'))
-	var next_url = seq.shift();
-	Cookies.set('next', JSON.stringify(seq));
-
-	var formData = JSON.stringify($("#qv_form").serializeArray());
-	$.ajax({
-		type: "post",
-		url: submit_url,
-		data: formData,
-		success: function (result) {
+	var retVal = confirm("Do you want to continue ?");
+		if( retVal == true ) {
+			var seq = JSON.parse(Cookies.get('next'))
+			var next_url = seq.shift();
+			Cookies.set('next', JSON.stringify(seq));
+		
+			var formData = JSON.stringify($("#qv_form").serializeArray());
+			$.ajax({
+				type: "post",
+				url: submit_url,
+				data: formData,
+				success: function (result) {
+					window.location.href = next_url;
+				},
+				dataType: "json",
+				contentType: 'application/json'
+			});
 			window.location.href = next_url;
-		},
-		dataType: "json",
-		contentType: 'application/json'
-	});
-	window.location.href = next_url;
-	event.preventDefault();
+			event.preventDefault();
+		   return true;
+		} else {
+		   return false;
+		}
 });
 
 $("#other").click(function () {
@@ -28,6 +34,16 @@ $(document).ready(function () {
 	if (page_url == '/qv/4'){
 		$("#partial").show();
 		$('.type').text('Partial Binary Quadratic Voting');
+		// $(".qv_vote").map(function () {$(this).attr("value",1);});
+		$(".qv_cost").map(function () {$(this).attr("value",1);});
+		$(".qv_cost").map(function () {$(this).text(1);
+			get_total_cost();
+			check_clickable();
+		});
+	}else if (page_url == '/qv/example'){
+		$("#example").show();
+		$('#not_example').hide()
+		$('.type').text('Binary Quadratic Voting');
 	}else{
 		$("#binary").show();
 		$('.type').text('Binary Quadratic Voting');
@@ -49,7 +65,9 @@ $(document).ready(function () {
 		$(this).siblings('.qv_vote').val(new_vote)
 
 		//update cost
+		
 		var new_cost = qv_cal(Math.abs(new_vote))
+		console.log(new_vote, new_cost)
 		$(this).siblings('.qv_cost').attr("value", new_cost)
 		$(this).siblings('.qv_cost').text(new_cost.toString())
 		get_total_cost()
@@ -143,6 +161,22 @@ function check_clickable() {
 	});
 }
 
+function toggle(btn, text) {
+	var btn = document.getElementById(btn);
+	var text = document.getElementById(text);
+	if(btn.innerHTML == "Show") {
+    		btn.innerHTML = "Hide";
+		text.style.display = "block";
+  	}
+	else {
+		btn.innerHTML = "Show";
+		text.style.display = "none";
+	}
+} 
+
 $(window).on('load', function() {
+	get_total_cost();
+	check_clickable();
+	$(".summary").magnet();
 	$("#cover").hide();
 });

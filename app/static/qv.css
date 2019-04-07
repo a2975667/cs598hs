@@ -42,6 +42,16 @@ h4 {
     font-size: 1.2rem
 }
 
+tr{
+    text-align: center;
+    vertical-align: middle;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+
 a.disabled {
     pointer-events: none;
     cursor: default;
@@ -52,7 +62,7 @@ a.disabled {
 }
 
 .summary {
-    background: rgba(193, 238, 243, 0.664);
+    background: rgba(193, 238, 243, 1);
     margin-top: 2em;
     margin-bottom: 3em;
     padding-top: 0.4em;

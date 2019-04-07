@@ -1,9 +1,14 @@
 var json_info = {
     pages: [{
-            questions: [{
+            questions: [
+                {
+                    type: "html",
+                    name: "Q1_ad attitude_info",
+                    html: "<h4>We are interested in understanding how you experience things online. We will start with some questions that seek your views about website advertising. Here, 'website advertising' refers to ads that are displayed on the web pages that you visit but it excludes pop-up windows or advertising sent over email. </h4>"
+                },{
                     type: "comment",
                     name: "Q1_ad attitude",
-                    title: "We are interested in understanding how you experience things online. We will start with some questions that seek your views about website advertising. Here, 'website advertising' refers to ads that are displayed on the web pages that you visit but it excludes pop-up windows or advertising sent over email. In a sentence or two, please tell us what you think about website advertising.",
+                    title: "In a sentence or two, please tell us what you think about website advertising.",
                     isRequired: true
                 },
                 {
@@ -65,7 +70,7 @@ var json_info = {
                 {
                     type: "text",
                     name: "Q4_age",
-                    title: "What's your age (in years)?",
+                    title: "What's your age (e.g. 25)?",
                     isRequired: true,
                     validators: [
                         {
@@ -126,7 +131,7 @@ var json_info = {
                 {
                     type: "dropdown",
                     name: "Q8_desktop use",
-                    title: "Using only desktop or laptop computers, either at home or at work, approximately how many hours do you spend on the Internet each day?",
+                    title: "Approximately how many hours do you spend on the internet each day USING ONLY DESKTOPS OR LAPTOPS, either at home or at work?",
                     isRequired: true,
                     colCount: 0,
                     choices: ["None"
@@ -141,7 +146,7 @@ var json_info = {
                 {
                     type: "dropdown",
                     name: "Q9_mobile use",
-                    title: "Using only mobile devices (e.g., Android Smartphone, iPhone, iPad, tablet, or similar), approximately how much time do you spend on the Internet each day?",
+                    title: "Approximately how many hours do you spend on the internet each day USING ONLY MOBILE DEVICES, either at home or at work?",
                     isRequired: true,
                     colCount: 0,
                     choices: ["None"
@@ -164,7 +169,8 @@ var json_info = {
                     , "...clicked on an ad that appeared on a website to get more information about the advertised product"
                     , "...accidentally clicked on an ad that appeared on a website"
                     , "...visited health, wellness, or medical information websites (e.g., MayoClinic, MyFitnessPal, Men's Health, etc.)"
-                    , "...used a search engine to find information about a medical condition"
+                    , "...used a search engine to find information about a medical condition",
+                    , "None of above"
                     ]
                 }
             ]
@@ -175,7 +181,7 @@ var json_info = {
                 {
                     type: "html",
                     name: "info",
-                    html: "<h3>Visiting a healthcare website</h3><h4>Clicking on the link below will open a new tab or window in your browser displaying a version of the WebMD website homepage with links disabled. Please look through this page at your own pace and make sure to scroll down and look at the entire page. Then, answer the following questions. Feel free to review the opened tab as many times as you want to answer these questions.<br><br> Click here to visit the WebMD homepage: <a href='https://www.webmd.com/' target='_blank'>https://www.webmd.com/</a></h4>"
+                    html: "<h3>Visiting a healthcare website</h3><h4>Clicking on the link below will open a new tab or window in your browser displaying a version of the WebMD website homepage with links disabled. Please look through this page at your own pace and make sure to scroll down and look at the entire page. Then, answer the following questions. Feel free to review the opened tab as many times as you want to answer these questions.<br><br> Please <b>right click and open the page in a new window or tab</b> to visit the WebMD homepage: <a href='https://www.webmd.com/' target='_blank'>https://www.webmd.com/</a></h4>"
                 },
                 {
                     type: "checkbox",
@@ -185,7 +191,7 @@ var json_info = {
                     colCount: 3,
                     choices: ["Acne"
                             , "Allergies"
-                            , "Alzheimer"
+                            , "Alzheimer's"
                             , "Asthma"
                             , "Bipolar disorder"
                             , "Cancer"
@@ -296,7 +302,7 @@ var json_info = {
             ]
         },
         {
-            title: "Please read this information carefully. Then answer the questions below.<br /><br />Many websites, including WebMD, are able to offer free services to their visitors by contracting with online advertising companies. The advertising companies pay websites for every ad they show, allowing the websites to provide free services for users like you.<br /><br />Imagine that you are experiencing a flaky scalp condition and decide to visit the WebMD website. WebMD has contracted with XYZ Advertising Company, which collects information about your interactions with only the WebMD website in order to predict your preferences and to show you ads that are most likely to be of interest to you. These ads are known as targeted ads. For example, if you search for 'flaky scalp' or read an article about scalp problems on the WebMD website, XYZ Advertising Company could show you ads for dandruff shampoo or another related product.<br /><br/>In particular, XYZ Advertising Company will:<br />1. Collect your information only from the WebMD website<br />2. Use the collected information to show you targeted ads only on the WebMD<br />3. Retain and use collected information for a maximum period of one day",
+            title: "Please read this information carefully. Then answer the questions below.<br /><br />Many websites, including WebMD, are able to offer free services to their visitors by contracting with online advertising companies. The advertising companies pay websites for every ad they show, allowing the websites to provide free services for users like you.<br /><br />Imagine that you are experiencing a flaky scalp condition and decide to visit the WebMD website. WebMD has contracted with XYZ Advertising Company, which collects information about your interactions with only the WebMD website in order to predict your preferences and to show you ads that are most likely to be of interest to you. These ads are known as targeted ads. For example, if you search for 'flaky scalp' or read an article about scalp problems on the WebMD website, XYZ Advertising Company could show you ads for dandruff shampoo or another related product.<br /><br/>In particular, XYZ Advertising Company will:<br />1. Collect your information only from the WebMD website<br />2. Use the collected information to show you targeted ads only on the WebMD website<br />3. Retain and use collected information for a maximum period of one day",
             questions: [{
                     type: "checkbox",
                     name: "Q17_info confirm 1",
@@ -307,7 +313,8 @@ var json_info = {
                         , "You see ads for Acme cough syrup on Facebook because you read about cough remedies on WebMD"
                         , "You see ads for Acme cough syrup on WebMD because a friend emailed you information about cough remedies"
                         , "You see ads for Acme cough syrup on WebMD because you read about cough remedies on WebMD"
-                        , "You see ads for Acme cough syrup on www.WashingtonPost.com because you read about cough remedies on WebMD"
+                        , "You see ads for Acme cough syrup on www.WashingtonPost.com because you read about cough remedies on WebMD",
+                        , "None of above"
                         ]
                 },
                 {

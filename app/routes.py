@@ -11,6 +11,10 @@ filename = os.path.join(app.static_folder, 'qv.json')
 questions = open(filename, "r")
 questions = json.load(questions)
 
+example_filename = os.path.join(app.static_folder, 'example.json')
+examples = open(example_filename, "r")
+examples = json.load(examples)
+
 @app.route('/')
 @app.route('/welcome')
 def welcome():
@@ -49,6 +53,9 @@ def dv(qvid):
     url_for('static', filename=filename)
     url_for('static', filename='qv.css')
     url_for('static', filename='loading.gif')
+    url_for('static', filename='jquery-magnet.js')
+    if qvid == 'example':
+        return render_template('qv.html', q_list = examples['questions'],filename=filename)    
     return render_template('qv.html', q_list = questions['questions'],filename=filename)
 
 
@@ -134,6 +141,10 @@ def submit_qv4():
         "results":data
     }
     mongo.db.result_qv4.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
+
+@app.route('/dummy', methods=['POST'])
+def dummy():
     return jsonify({'ok': True}), 200
 
 @app.route('/submit_likert', methods=['POST'])
