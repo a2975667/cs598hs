@@ -5,6 +5,7 @@ import json.decoder
 import os
 import uuid 
 from pprint import pprint
+import random
 
 
 filename = os.path.join(app.static_folder, 'qv.json')
@@ -85,8 +86,17 @@ def likert_ID(likertID):
 
 @app.route('/api/getScript')
 def get_script():
-    path = mongo.db.path.find().sort([("count", 1)]).limit(1)[0]
-    return jsonify({"path": path['path']})
+    path = mongo.db.path.find().sort([("count", 1)]).limit(7)
+    returned_results = []
+    for i in path:
+        returned_results.append(i)
+    largest = returned_results[-1]['count']+1
+    for_selection = []
+    for i in returned_results:
+        for j in range(largest-i['count']):
+            for_selection.append(i['path'])
+    selected_path = random.sample(for_selection,1)[0]
+    return jsonify({"path": selected_path})
 
 @app.route('/api/updateScript', methods=['POST'])
 def update_script():
