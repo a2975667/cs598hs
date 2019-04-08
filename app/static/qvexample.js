@@ -3,7 +3,7 @@ function qv_cal(number){
 }
 
 function qv_total_voice(){
-	var total_votes = 100
+	var total_votes = 30
 	return total_votes
 }
 

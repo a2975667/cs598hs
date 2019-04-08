@@ -4,11 +4,11 @@ var json_info = {
                 {
                     type: "html",
                     name: "Q1_ad attitude_info",
-                    html: "<h4>We are interested in understanding how you experience things online. We will start with some questions that seek your views about website advertising. Here, 'website advertising' refers to ads that are displayed on the web pages that you visit but it excludes pop-up windows or advertising sent over email. </h4>"
+                    html: "<h4>We are interested in understanding how you experience things online. We will start with some questions that seek your views about online advertising. Here, 'online advertising' refers to ads that are displayed on the web pages that you visit but it excludes pop-up windows or advertising sent over email. </h4>"
                 },{
                     type: "comment",
                     name: "Q1_ad attitude",
-                    title: "In a sentence or two, please tell us what you think about website advertising.",
+                    title: "In a sentence or two, please tell us what you think about online advertising.",
                     isRequired: true
                 },
                 {
@@ -39,19 +39,19 @@ var json_info = {
                     ],
                     rows: [{
                             value: "a",
-                            text: "Website advertising is necessary to enjoy free services on the Internet"
+                            text: "online advertising is necessary to enjoy free services on the Internet"
                         },
                         {
                             value: "b",
-                            text: "In general, I find website advertising useful"
+                            text: "In general, I find online advertising useful"
                         },
                         {
                             value: "c",
-                            text: "In general, I find website advertising distracting"
+                            text: "In general, I find online advertising distracting"
                         },
                         {
                             value: "d",
-                            text: "In general, I find website advertising to be relevant to my interests"
+                            text: "In general, I find online advertising to be relevant to my interests"
                         },
                          {
                             value: "e",

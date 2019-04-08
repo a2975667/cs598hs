@@ -12,6 +12,9 @@ var sequence = {
     "K":['/normal/demographic','/qv/example', '/qv/2', '/qv/1', '/qv/3', '/normal/likert_version', '/normal/followup', '/complete'],
     "L":['/normal/demographic','/qv/example', '/qv/2', '/qv/3', '/qv/1', '/normal/likert_version', '/normal/followup', '/complete'],
     "M":['/normal/demographic','/qv/example', '/qv/3', '/qv/1', '/qv/2', '/normal/likert_version', '/normal/followup', '/complete'],
-    "N":['/normal/demographic','/qv/example', '/qv/3', '/qv/2', '/qv/1', '/normal/likert_version', '/normal/followup', '/complete']
-
+    "N":['/normal/demographic','/qv/example', '/qv/3', '/qv/2', '/qv/1', '/normal/likert_version', '/normal/followup', '/complete'],
+    "O":['/normal/demographic', '/normal/likert_version','/qv/example', '/qv/2', '/qv/4', '/normal/followup', '/complete'],
+    "P":['/normal/demographic','/qv/example', '/qv/2', '/normal/likert_version', '/qv/4', '/normal/followup', '/complete'],
+    "Q":['/normal/demographic', '/normal/likert_version','/qv/example', '/qv/2', '/qv/4', '/normal/followup', '/complete'],
+    "R":['/normal/demographic','/qv/example', '/qv/2', '/normal/likert_version', '/qv/4', '/normal/followup', '/complete']
 }

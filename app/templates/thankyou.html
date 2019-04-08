@@ -26,11 +26,12 @@
 
     <body>
         <div class="container">
-            <h1>Thank you</h1>
+            <h1>One last step</h1>
         </div>
         <div class="container">
-            <h3>This is the end of this survey.</h3>
             <h3>You must click the complete button here to record the results.</h3>
+            <h3>This is the end of this survey.</h3>
+            <h3>Thank you</h3>
         </div>
         
         <div class="container">
@@ -54,12 +55,12 @@
                     success: function(result) {
                         Cookies.remove('script');
                         Cookies.remove('UserId');
-                        window.location.href = '/';
+                        window.location.href = 'https://google.com';
                     },
                     dataType: "json",
                     contentType: 'application/json'
                 });
-                window.location.href = '/';
+                window.location.href = 'https://google.com';
             }
             
         </script>

@@ -101,6 +101,8 @@ def get_script():
 @app.route('/api/updateScript', methods=['POST'])
 def update_script():
     data = request.json
+    print(data)
+    pprint({'path': str(data['path'])})
     mongo.db.path.update({'path': str(data['path'])}, {'$inc': {'count': 1}})
     mongo.db.users.insert_one({"userid":data['userid']})
     return jsonify({'ok': True}), 200
